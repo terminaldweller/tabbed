@@ -1,0 +1,19 @@
+@@ -1040,15 +1000,9 @@ spawn(const Arg *arg) {
+ 
+ int
+ textnw(const char *text, unsigned int len) {
+-	XRectangle r;
+-
+-	if(dc.font.set) {
+-		XmbTextExtents(dc.font.set, text, len, NULL, &r);
+-
+-		return r.width;
+-	}
+-
+-	return XTextWidth(dc.font.xfont, text, len);
++	XGlyphInfo ext;
++	XftTextExtentsUtf8(dpy, dc.font.xfont, (XftChar8 *) text, len, &ext);
++	return ext.xOff;
+ }
+ 
+ void

@@ -1,0 +1,15 @@
+diff --git a/tabbed.c b/tabbed.c
+index eafe28a..c5bffc7 100644
+--- a/tabbed.c
++++ b/tabbed.c
+@@ -1354,6 +1422,7 @@ main(int argc, char *argv[])
+ 	if (!(dpy = XOpenDisplay(NULL)))
+ 		die("%s: cannot open display\n", argv0);
+ 
++	config_init();
+ 	setup();
+ 	printf("0x%lx\n", win);
+ 	fflush(NULL);
+-- 
+2.30.2
+
